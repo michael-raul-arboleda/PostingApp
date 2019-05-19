@@ -8,16 +8,14 @@ import {PostsService} from '../posts.service';
   styleUrls: ['./post-list.component.css']
 })
 export class PostListComponent implements OnInit {
-  // posts = [
-  //   {title: 'T1', content: 'c1'},
-  //   {title: 'T2', content: 'c2'},
-  //   {title: 'T3', content: 'c3'}
-  // ];
 
   @Input() posts: Post[] = [];
 
-  constructor(postService: PostsService) { }
+  constructor(
+    public postService: PostsService
+  ) { }
 
   ngOnInit() {
+    this.posts = this.postService.getPost();
   }
 }
