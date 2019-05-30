@@ -13,7 +13,7 @@ export class PostCreateComponent implements OnInit {
 
   private mode = 'create';
   private postId: string;
-  private post: Post;
+  public post: Post;
 
   constructor(
     public postsService: PostsService,
@@ -25,7 +25,7 @@ export class PostCreateComponent implements OnInit {
       if (paramMap.has('postId')) {
         this.mode = 'edit';
         this.postId = paramMap.get('postId');
-        this.post = this.postsService.getPost(this.postId);
+        this.post = this.postsService.getPosts(this.postId);
       } else {
         this.mode = 'create';
         this.postId = null;
