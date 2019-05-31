@@ -68,7 +68,7 @@ export class PostCreateComponent implements OnInit {
     });
   }
 
-  onImagePicked(event: Event){
+  onImagePicked(event: Event) {
     const file = (event.target as HTMLInputElement).files[0];
     this.form.patchValue({image: file});
     this.form.get('image').updateValueAndValidity();
@@ -82,7 +82,7 @@ export class PostCreateComponent implements OnInit {
   onSavePost() {
     if (this.form.valid) {
       this.isloading = true;
-      if (this.mode === 'create'){
+      if (this.mode === 'create') {
         this.postsService.addPost(
           this.form.value.title,
           this.form.value.content,
